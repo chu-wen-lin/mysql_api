@@ -29,7 +29,7 @@ app = FastAPI(
 
 @app.get('/')
 async def home():
-    return 'Ready to fetch data by MYSQL CRUD API!'
+    return 'Ready to fetch data by MYSQL API!'
 
 
 @app.get('/posts', tags=['selection'], response_model=List[schema.TypeHintOut])
@@ -43,6 +43,7 @@ async def select_posts(s_id: Optional[str] = None,
     if keywords:
         keywords = keywords.split(',')
         keywords = [keyword.strip(' ') for keyword in keywords]
+        keywords = '%'.join(keywords)
 
     return tools.select_posts(s_id=s_id, s_area_id=s_area_id, start_time=start_time,
                               end_time=end_time, keywords=keywords,

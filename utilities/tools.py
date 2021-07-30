@@ -18,8 +18,7 @@ def select_posts(limit,
                 elif key == 'end_time':
                     sub_query = f" WHERE `post_time` <= '{kwargs[key]}'"
                 elif key == 'keywords':
-                    keywords_joined = '%'.join(kwargs[key])
-                    sub_query = f" WHERE `content` LIKE '%{keywords_joined}%'"
+                    sub_query = f" WHERE `content` LIKE '%{kwargs[key]}%'"
                 else:
                     sub_query = f" WHERE `{key}` = '{kwargs[key]}'"
             else:
@@ -28,8 +27,7 @@ def select_posts(limit,
                 elif key == 'end_time':
                     sub_query += f" AND `post_time` <= '{kwargs[key]}'"
                 elif key == 'keywords':
-                    keywords_joined = '%'.join(kwargs[key])
-                    sub_query += f" AND `content` LIKE '%{keywords_joined}%'"
+                    sub_query += f" AND `content` LIKE '%{kwargs[key]}%'"
                 else:
                     sub_query += f" AND `{key}` = '{kwargs[key]}'"
 
