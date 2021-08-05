@@ -8,9 +8,8 @@ from object.schema import TypeHintOut as Schema
 def select_posts(limit,
                  offset,
                  **kwargs):
-
     sub_query = None
-    for key in kwargs.keys():  # retrieve parameters excluding limit and offset
+    for key in kwargs.keys():
         if kwargs[key]:
             if not sub_query:
                 if key == 'start_time':
@@ -35,9 +34,10 @@ def select_posts(limit,
         with connection.cursor(pymysql.cursors.DictCursor) as cursor:
             columns = ','.join(Schema.__dict__.get("__fields__").keys())
             if sub_query:
-                query = f"SELECT {columns} FROM `ts_page_content` {sub_query} ORDER BY `post_time` DESC limit {limit} offset {offset}"
+                query = f"SELECT {columns} FROM `ts_page_content` {sub_query} limit {limit} offset {offset}"
             else:
-                query = f"SELECT {columns} FROM `ts_page_content` ORDER BY `post_time` DESC limit {limit} offset {offset}"
+                query = f"SELECT {columns} FROM `ts_page_content` limit {limit} offset {offset}"
+
             cursor.execute(query)
 
             result = cursor.fetchone()

@@ -7,12 +7,10 @@ from typing import Optional
 
 class TypeHintOut(BaseModel):
     id: str
-    identify: Optional[str] = None
-    p_type: Optional[str] = None
     s_id: Optional[str] = None
     s_area_id: Optional[str] = None
-    main_id: Optional[str] = None
     title: Optional[str] = None
+    content_type: Optional[str] = None
     author: Optional[str] = None
     page_url: Optional[str] = None
     post_time: Optional[datetime] = None
