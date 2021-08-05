@@ -1,5 +1,6 @@
 # TODO: build FastAPI service
 
+import os
 import uvicorn
 from datetime import date
 from fastapi import FastAPI, Query
@@ -11,8 +12,8 @@ from utilities import tools
 tags_metadata = [
     {
         "name": "selection",
-        "description": "Type s_id, s_area_id, start time, end time and keywords to filter posts. "
-                       "'s_id' represents forum sites. 's_area_id' represents forum boards. "
+        "description": "Type s_id, s_area_id, p_type, start time, end time and keywords to filter posts. "
+                       "'s_id' represents forum sites. 's_area_id' represents forum boards. p_type represents post type. "
                        "When start_time and end_time are filled, you'll get posts whose post time are in [start, end]. "
                        "If you are willing to select posts with multiple words, hit 'Add string item' to add more keywords. "                       
                        "If there is no condition specified, we'll return the newest 100 posts."
@@ -35,6 +36,7 @@ async def home():
 @app.get('/posts', tags=['selection'], response_model=List[schema.TypeHintOut])
 async def select_posts(s_id: Optional[str] = None,
                        s_area_id: Optional[str] = None,
+                       p_type: str = 'forum',
                        start_time: Optional[date] = None,
                        end_time: Optional[date] = None,
                        keywords: Optional[List[str]] = Query(None),
@@ -45,9 +47,10 @@ async def select_posts(s_id: Optional[str] = None,
         keywords = [keyword.strip(' ') for keyword in keywords]
         keywords = '%'.join(keywords)
 
-    return tools.select_posts(s_id=s_id, s_area_id=s_area_id, start_time=start_time,
+    return tools.select_posts(s_id=s_id, s_area_id=s_area_id,
+                              p_type=p_type, start_time=start_time,
                               end_time=end_time, keywords=keywords,
                               limit=limit, offset=offset)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True, debug=True)
+    uvicorn.run("app:app", host=os.getenv('host'), port=8000, reload=True, debug=True)
