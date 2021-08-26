@@ -2,7 +2,7 @@
 
 import os
 import uvicorn
-from datetime import date
+from datetime import datetime
 from fastapi import FastAPI, Query
 from object import schema
 from typing import Optional, List
@@ -38,8 +38,8 @@ async def home():
 async def select_posts(s_id: Optional[str] = None,
                        s_area_id: Optional[str] = None,
                        content_type: str = 'main',
-                       start_time: Optional[date] = None,
-                       end_time: Optional[date] = None,
+                       start_time: Optional[datetime] = None,
+                       end_time: Optional[datetime] = None,
                        keywords: Optional[List[str]] = Query(None),
                        limit: int = 100,
                        offset: int = 0):
