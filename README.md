@@ -21,7 +21,7 @@ Provides an easy way to fetch data from database.
 ![environment variables](environment_variables.png)
 
 2.  Run app.py script.
-3.  Send requests to access posts. For example, you can fetch posts on WH_F0116(Dcard) which contain both 小弟 and 女友 by the code below.
+3.  Send requests to access posts. For instance, you can fetch posts on WH_F0116(Dcard) which contain both 小弟 and 女友 by the code below.
 
         import requests 
     
