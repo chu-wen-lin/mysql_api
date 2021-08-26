@@ -3,7 +3,8 @@ Provides an easy way to fetch data from database.
 **Structure**
 - - -
     mysql_api/
-    ├── README.md   
+    ├── app.py
+    ├── README.md  
     ├── requirements.txt
     ├── .gitignore
     ├── object
@@ -11,16 +12,20 @@ Provides an easy way to fetch data from database.
     │   └── database.py
     │   └── schema.py
     └── utilities
-        └── __init__.py
-        └── tools.py
+    │   └── __init__.py
+    │   └── tools.py
+    └── pictures
+        └── docs.png
+        └── environment_variables.png
+        └── result.png
 - - -
 **Instructions**
 - - -
-1.  Set environment variables in 'app' configuration.
+1.  Set environment variables in configuration of *app.py*.
    
 ![environment variables](pictures/environment_variables.png)
 
-2.  Run app.py script.
+2.  Run *app.py*.
 3.  Send requests to access posts. For instance, you can fetch posts on WH_F0116(Dcard) which contain both 小弟 and 女友 by the code below.
 
         import requests 

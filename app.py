@@ -54,4 +54,4 @@ async def select_posts(s_id: Optional[str] = None,
                                    limit=limit, offset=offset)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host=os.getenv('host'), port=8000, reload=True, debug=True)
+    uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True, debug=True)
