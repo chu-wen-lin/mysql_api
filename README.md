@@ -18,7 +18,7 @@ Provides an easy way to fetch data from database.
 - - -
 1.  Set environment variables in 'app' configuration.
    
-![environment variables](environment_variables.png)
+![environment variables](pictures/environment_variables.png)
 
 2.  Run app.py script.
 3.  Send requests to access posts. For instance, you can fetch posts on WH_F0116(Dcard) which contain both 小弟 and 女友 by the code below.
@@ -34,5 +34,5 @@ s_id, s_area_id, content_type, start_time, end_time, keywords, limit, offset.
 - - -
 You can experience it by entering this path: '<api_url>/docs'.
 
-![document](docs.png) 
-![document](result.png) 
+![document](pictures/docs.png) 
+![document](pictures/result.png) 
