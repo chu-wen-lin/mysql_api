@@ -25,7 +25,7 @@ Provides an easy way to fetch data from database.
     
 ![environment variables](pictures/environment_variables.png)
 
-2.  Run *app.py* and below messages would show.
+2.  Run *app.py* and below messages would show up.
 
 ![run](pictures/run_pycharm.png)
     
