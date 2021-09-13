@@ -22,10 +22,13 @@ Provides an easy way to fetch data from database.
 **Instructions**
 - - -
 1.  Set environment variables in configuration of *app.py*.
-   
+    
 ![environment variables](pictures/environment_variables.png)
 
-2.  Run *app.py*.
+2.  Run *app.py* and below messages would show.
+
+![run](pictures/run_pycharm.png)
+    
 3.  Send requests to access posts. For instance, you can fetch posts on WH_F0116(Dcard) which contain both 小弟 and 女友 by the code below.
 
         import requests 

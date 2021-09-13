@@ -29,12 +29,12 @@ app = FastAPI(
 )
 
 
-@app.get('/')
+@app.get('/', tags=['home'])
 async def home():
     return 'Ready to fetch data by MYSQL API!'
 
 
-@app.get('/posts', tags=['selection'], response_model=List[schema.TypeHintOut])
+@app.get('/posts', tags=['selection'], response_model=List[schema.Post])
 async def select_posts(s_id: Optional[str] = None,
                        s_area_id: Optional[str] = None,
                        content_type: str = 'main',
@@ -54,4 +54,4 @@ async def select_posts(s_id: Optional[str] = None,
                                    limit=limit, offset=offset)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host='0.0.0.0', port=8000, reload=True, debug=True)
+    uvicorn.run("app:app", host=os.getenv("api_host"), port=int(os.getenv("api_port")), reload=True, debug=True)

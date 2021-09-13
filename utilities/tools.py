@@ -2,7 +2,7 @@
 
 import pymysql
 from object.database import get_db
-from object.schema import TypeHintOut as Schema
+from object.schema import Post as Schema
 
 
 def select_posts(limit,

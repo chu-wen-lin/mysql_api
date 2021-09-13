@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 
-class TypeHintOut(BaseModel):
+class Post(BaseModel):
     id: str
     s_id: Optional[str] = None
     s_area_id: Optional[str] = None
